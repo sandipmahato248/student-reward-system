@@ -1,0 +1,56 @@
+spring:
+   cloud:
+      gateway:
+         globalcors:
+            corsConfigurations:
+               '[/**]':
+                  allowedOrigins: '*'
+                  allowedHeaders: '*'
+                  allowedMethods:
+                  - GET
+                  - POST
+                  - PUT
+                  - DELETE
+         routes:
+         -  id: UserService
+            uri: lb://USERSERVICE
+            predicates:
+            - Path=/users/**
+
+         -  id: TeacherService
+            uri: lb://TEACHERSERVICE
+            predicates:
+            - Path=/teachers/**
+
+         -  id: SchoolService
+            uri: lb://SCHOOLSERVICE
+            predicates:
+            - Path=/schools/**
+
+         -  id: StudentService
+            uri: lb://STUDENTSERVICE
+            predicates:
+            - Path=/students/**
+
+         -  id: AvatarService
+            uri: lb://AVATARSERVICE
+            predicates:
+            - Path=/avatars/**
+
+         -  id: LoginService
+            uri: lb://LOGINSERVICE
+            predicates:
+            - Path=/login/**
+
+         -  id: SecurityService
+            uri: lb://SECURITYSERVICE
+            predicates:
+            - Path=/oauth/**
+            
+         -  id: TeacherCommandService
+            uri: lb://TEACHERCOMMANDSERVICE
+            predicates:
+            - Path=/teacher/command/**   
+            
+            
+            

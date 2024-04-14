@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;ConfigServer/src/main/resources/config/TeacherAdminService.yml&apos; to &apos;TeacherCommandService.yml&apos;" description="Rename resource &apos;TeacherAdminService.yml&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/main/resources/config/TeacherAdminService.yml" name="TeacherCommandService.yml" stamp="1679066801133" updateReferences="true"/>
+</session>

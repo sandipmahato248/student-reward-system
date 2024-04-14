@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="MavenProjectImportWizardPage">
+		<list key="rootDirectory">
+			<item value="/Users/sandip/Documents/workspace-spring-tool-suite-4-4.16.1.RELEASE/SaProject/TeacherService"/>
+			<item value="/Users/sandip/Documents/workspace-spring-tool-suite-4-4.16.1.RELEASE/SaProject/ServiceRegistry"/>
+			<item value="/Users/sandip/Documents/workspace-spring-tool-suite-4-4.16.1.RELEASE/SaProject/UserService"/>
+			<item value="/Users/sandip/Documents/workspace-spring-tool-suite-4-4.16.1.RELEASE/SaProject/StudentService"/>
+			<item value="/Users/sandip/Documents/workspace-spring-tool-suite-4-4.16.1.RELEASE/SaProject/SecurityService"/>
+			<item value="/Users/sandip/Documents/workspace-spring-tool-suite-4-4.16.1.RELEASE/SaProject/SchoolService"/>
+			<item value="/Users/sandip/Documents/workspace-spring-tool-suite-4-4.16.1.RELEASE/SaProject/LoginService"/>
+			<item value="/Users/sandip/Documents/workspace-spring-tool-suite-4-4.16.1.RELEASE/SaProject/EmailService"/>
+			<item value="/Users/sandip/Documents/workspace-spring-tool-suite-4-4.16.1.RELEASE/SaProject/ConfigServer"/>
+			<item value="/Users/sandip/Documents/workspace-spring-tool-suite-4-4.16.1.RELEASE/SaProject/AvatarService"/>
+			<item value="/Users/sandip/Documents/workspace-spring-tool-suite-4-4.16.1.RELEASE/SaProject/ApiGateway"/>
+		</list>
+		<list key="projectNameTemplate">
+			<item value="[artifactId]"/>
+			<item value="[artifactId]-TRUNK"/>
+			<item value="[artifactId]-[version]"/>
+			<item value="[groupId].[artifactId]"/>
+			<item value="[groupId].[artifactId]-[version]"/>
+			<item value="[name]"/>
+		</list>
+	</section>
+	<section name="org.eclipse.m2e.core.pom.overview">
+	</section>
+	<section name="org.eclipse.m2e.core.pom.dependencies">
+	</section>
+</section>

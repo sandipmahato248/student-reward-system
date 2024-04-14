@@ -1,0 +1,18 @@
+
+spring:
+  data:
+    mongodb:
+      authentication-database: admin
+      username: root
+      password: root
+      host: localhost
+      port: 27017
+      database: school      
+ 
+security:
+  oauth2:
+    resource:
+     token-info-uri: http://localhost:8087/oauth/check_token
+    client:
+     client-id: client
+     client-secret: secret       

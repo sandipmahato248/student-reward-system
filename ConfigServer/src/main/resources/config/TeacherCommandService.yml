@@ -1,0 +1,17 @@
+#security:
+#  oauth2:
+#    resource:
+#     token-info-uri: http://localhost:8087/oauth/check_token
+#    client:
+#     client-id: client
+#     client-secret: secret 
+
+security:
+  oauth2:
+    client:
+      accessTokenUri: http://localhost:8087/oauth/token
+      userAuthorizationUri: http://localhost:8087/oauth/authorize
+      clientId: client
+      clientSecret: secret
+    resource:
+      userInfoUri: http://localhost:8087/user

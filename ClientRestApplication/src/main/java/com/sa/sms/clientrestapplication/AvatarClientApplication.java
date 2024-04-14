@@ -1,0 +1,142 @@
+package com.sa.sms.clientrestapplication;
+
+import java.util.List;
+import java.util.Objects;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.core.ParameterizedTypeReference;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.client.RestTemplate;
+
+import com.sa.sms.clientrestapplication.dto.Avatar;
+import com.sa.sms.clientrestapplication.dto.LoginDto;
+
+@SpringBootApplication
+public class AvatarClientApplication implements CommandLineRunner {
+	
+	@Autowired
+	private RestTemplate restTemplate;
+
+	private final static String URL = "http://localhost:9191";
+
+	private String login(String userName, String password) throws Exception {
+		try {
+			return restTemplate.postForObject(URL + "/login", new LoginDto(userName, password), String.class);
+		} catch (Exception e) {
+			throw new Exception("Invalid username or password");
+		}
+	}
+
+	private <T> void customPostRequest(String path, T requestBody, String token) {
+		String authorization = "Bearer " + token;
+
+		HttpHeaders headers = new HttpHeaders();
+		headers.setContentType(MediaType.APPLICATION_JSON);
+		headers.set("Authorization", authorization);
+
+		HttpEntity<T> request = new HttpEntity<>(requestBody, headers);
+		restTemplate.postForLocation(URL + path, request);
+		System.out.println("Added Successfully");
+	}
+
+	private void addAvatar(String token) {
+		Avatar avatar = new Avatar("1","Round","black","blue","eyebrow","long",
+				"mouth","ears","body","hat","top","red","black");
+		customPostRequest("/avatars", avatar, token);
+		System.out.println("Avatar sucessfully added by student");
+	}
+
+	private List<Avatar> getAllAvatars(String token) {
+		String authorization = "Bearer " + token;
+		HttpHeaders headers = new HttpHeaders();
+		headers.setContentType(MediaType.APPLICATION_JSON);
+		headers.set("Authorization", authorization);
+		HttpEntity<Object> request = new HttpEntity<>(headers);
+		ResponseEntity<List<Avatar>> response = restTemplate.exchange(URL +"/avatars",
+				HttpMethod.GET, request,new ParameterizedTypeReference<>() {
+				});
+		if(Objects.nonNull(response))
+			response.getBody().forEach(System.out::println);
+		return response.getBody();
+	}
+
+	public <T> void customPutRequest(String path, T requestBody, String token) {
+		String authorization = "Bearer " + token;
+
+		HttpHeaders headers = new HttpHeaders();
+		headers.setContentType(MediaType.APPLICATION_JSON);
+		headers.set("Authorization", authorization);
+
+		HttpEntity<T> request = new HttpEntity<>(requestBody, headers);
+		restTemplate.put(URL + path, request);
+		System.out.println("Update Successful...");
+	}
+	
+	private void updateAvatar(String token) {
+		List<Avatar> avatarList = getAllAvatars(token);
+		Avatar avatar = avatarList.get(0);
+		avatar.setBody("Updated Body");
+		customPutRequest("/avatars/"+avatar.getAvatarId(), avatar, token);
+		System.out.println("update sucessful...");
+	}
+	
+	public <T> void customDeleteRequest(String path, String token) {
+		String authorization = "Bearer " + token;
+
+		HttpHeaders headers = new HttpHeaders();
+		headers.setContentType(MediaType.APPLICATION_JSON);
+		headers.set("Authorization", authorization);
+
+		HttpEntity<Object> request = new HttpEntity<>(headers);
+		ResponseEntity<String> response = restTemplate.exchange(
+	                URL + path,
+	                HttpMethod.DELETE,
+	                request,
+	                new ParameterizedTypeReference<>() {
+	                }
+	        );
+		System.out.println("Delete Successful...");
+	}
+
+	
+	private void deleteAvatar(String token) {
+		List<Avatar> avatarList = getAllAvatars(token);
+		Avatar avatar = avatarList.get(0);
+		customDeleteRequest("/avatars/"+avatar.getAvatarId(), token);
+		System.out.println("delete sucessful...");
+	}
+	
+	@Override
+	public void run(String... args) throws Exception {
+		System.out.println("----------------------------------");
+		System.out.println("Login as Student");
+		String token = login("student", "password");
+		if (Objects.nonNull(token))
+			System.out.println("Login Sucess as student");
+		System.out.println("------------------------------------");
+
+		System.out.println("Adding Avatar by Student");
+		addAvatar(token);
+		System.out.println("------------------------------------");
+
+		System.out.println("Get All Avatars");
+		getAllAvatars(token);
+		System.out.println("------------------------------------");
+		
+		System.out.println("Update avatar details");
+		updateAvatar(token);
+		System.out.println("------------------------------------");
+		
+		System.out.println("Delete avatar details");
+		deleteAvatar(token);
+		System.out.println("------------------------------------");
+	}
+
+
+}

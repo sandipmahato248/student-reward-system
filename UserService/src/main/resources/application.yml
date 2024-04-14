@@ -1,0 +1,29 @@
+server:
+ port: 8081
+
+#spring:
+#  application:
+#    name: USER-SERVICE
+#  
+#
+#eureka:
+#  client:
+#   register-with-eureka: true
+#   fetch-registry: true
+#   service-url:
+#           defaultZone: http://localhost:8761/eureka/
+#  instance:
+#    hostname: localhost  
+
+#security:
+#  oauth2:
+#    client:
+#      accessTokenUri: http://localhost:8087/oauth/token
+#      userAuthorizationUri: http://localhost:8087/oauth/authorize
+#      clientId: client
+#      clientSecret: secret
+#    resource:
+#      userInfoUri: http://localhost:8087/user
+
+    
+                  

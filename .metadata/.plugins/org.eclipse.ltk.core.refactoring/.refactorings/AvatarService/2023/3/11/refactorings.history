@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Copy element &apos;Avatar.java&apos; to &apos;StudentService/src/main/java/com.swa.sms.studentservice.model&apos;&#x0A;- Original project: &apos;AvatarService&apos;&#x0A;- Destination element: &apos;StudentService/src/main/java/com.swa.sms.studentservice.model&apos;&#x0A;- Original element: &apos;com.swa.sms.avatarservice.model.Avatar.java&apos;" description="Copy compilation unit" destination="=StudentService/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.swa.sms.studentservice.model" element1="/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.swa.sms.avatarservice.model{Avatar.java" files="0" flags="589830" folders="0" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyResources" stamp="1678757119591" units="1" version="1.0"/>
+</session>

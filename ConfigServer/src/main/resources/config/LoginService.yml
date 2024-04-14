@@ -1,0 +1,4 @@
+authentication:
+  url: http://localhost:8087/oauth/token
+  clientId: client
+  clientSecret: secret
